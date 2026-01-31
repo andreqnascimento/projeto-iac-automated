@@ -8,7 +8,7 @@
 
 ## 🤖 Automação de Code Review com Google Gemini
 
-Este projeto implementa um **Agente de IA** utilizando a API do Google Gemini (Modelo Pro/Flash) para automatizar a revisão de código Terraform. O sistema analisa riscos de segurança e custos antes da aprovação.
+Este projeto implementa um **Agente de IA** utilizando a API do Google Gemini para automatizar a revisão de código Terraform. O sistema analisa riscos de segurança e custos antes da aprovação.
 
 ### 🚀 Funcionalidades
 
