@@ -4,38 +4,26 @@
 - **RA:** 2203490
 - **Objetivo:** Demonstrar domínio de Prompt Engineering criando 3 versões evolutivas de um prompt para análise automática de Pull Requests.
 
-## Estrutura do Projeto
+# 🤖 Automação de Code Review de IaC com Google Gemini
 
-## Estrutura do Projeto
+Este projeto implementa um **Agente de IA** utilizando a API do Google Gemini para automatizar a revisão de Pull Requests (PRs) de Infraestrutura como Código (Terraform).
+
+O objetivo é garantir segurança, conformidade e otimização de custos (FinOps) antes que o código seja aprovado, além de demonstrar técnicas de defesa contra ataques adversariais em LLMs.
+
+## 🚀 Funcionalidades
+
+* **Análise de Segurança:** Identifica vulnerabilidades em recursos AWS (ex: Buckets S3 públicos, Security Groups abertos).
+* **Análise FinOps:** Avalia o impacto financeiro das mudanças (ex: instâncias de banco de dados superdimensionadas).
+* **Defesa Anti-Injection:** Utiliza a técnica de *Sandwich Defense* e prompts estruturados para bloquear tentativas de "Prompt Injection".
+* **Relatórios Automáticos:** Gera arquivos Markdown (`.md`) com o parecer detalhado da IA (Aprovar/Rejeitar).
+
+## 📂 Estrutura do Projeto
 
 ```text
 ├── scripts/
-│   └── automacao_gemini.py      # Script principal da automação
-├── resultados_auto/             # Evidências geradas pelo script (MD)
-├── resultados_manuais/          # Prints e testes manuais
-├── .gitignore                   # Arquivo de segurança (chaves/lixo)
-├── requirements.txt             # Dependências do Python
+│   └── automacao_gemini.py      # Script Python principal (Lógica da IA)
+├── resultados_auto/             # Relatórios gerados automaticamente pelo script
+├── resultados_manuais/          # Evidências de testes manuais e prints
+├── .gitignore                   # Arquivos ignorados pelo Git (segurança)
+├── requirements.txt             # Lista de dependências do Python
 └── README.md                    # Documentação do projeto
-
-## Raciocínio e Evolução
-
-### 1. Versão Baseline (v1)
-**Estratégia:** Criei um prompt direto solicitando a classificação e decisão, sem fornecer contexto de persona ou estrutura rígida.
-- **Resultado:** O modelo identificou erros de sintaxe, mas as respostas foram despadronizadas.
-- **Falha:** Vulnerável a manipulação. No teste `PR6`, o prompt aceitou comandos maliciosos do usuário.
-
-### 2. Versão Estruturada (v2)
-**Estratégia:** Adicionei a persona de "Especialista Sênior" e forcei um template Markdown na saída.
-- **Melhoria:** A legibilidade aumentou e a análise ficou visualmente consistente.
-- **Falha:** Ainda suscetível a Prompt Injection. A IA obedeceu à instrução "IGNORE ALL PREVIOUS INSTRUCTIONS" contida no código do PR6.
-
-### 3. Versão Schema & Defesa (v3) - A Solução Final
-**Estratégia:** Implementei defesa em camadas:
-1.  **Delimitadores XML:** O código do PR foi isolado dentro de tags `<pull_request>`.
-2.  **Meta-Prompting:** Instrução explícita para tratar o conteúdo das tags apenas como dados.
-3.  **Foco em FinOps:** Detecção proativa de mudanças de SKU (ex: instância r6g.8xlarge no PR3).
-
-
-**Conclusão:** A v3 foi a única capaz de bloquear o ataque de injeção (rejeitando o PR6) e fornecer uma análise financeira detalhada.
-
-
