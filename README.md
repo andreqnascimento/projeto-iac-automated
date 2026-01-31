@@ -6,7 +6,7 @@
 
 ## Estrutura do Projeto
 
-```text
+text
 ├── prompts/
 │   ├── v1-baseline.md    (Versão básica sem proteções)
 │   ├── v2-structured.md  (Versão com formatação padronizada)
