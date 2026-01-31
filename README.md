@@ -1,29 +1,28 @@
 # Engenharia de Prompts para Análise de IaC
 
-- **Nome:** André Queiroz do Nascimento
-- **RA:** 2203490
-- **Objetivo:** Demonstrar domínio de Prompt Engineering criando 3 versões evolutivas de um prompt para análise automática de Pull Requests.
+* **Nome:** André Queiroz do Nascimento
+* **RA:** 2203490
+* **Objetivo:** Demonstrar domínio de Prompt Engineering criando 3 versões evolutivas de um prompt para análise automática de Pull Requests, focando em segurança e FinOps.
 
-# 🤖 Automação de Code Review de IaC com Google Gemini
+---
 
-Este projeto implementa um **Agente de IA** utilizando a API do Google Gemini para automatizar a revisão de Pull Requests (PRs) de Infraestrutura como Código (Terraform).
+## 🤖 Automação de Code Review com Google Gemini
 
-O objetivo é garantir segurança, conformidade e otimização de custos (FinOps) antes que o código seja aprovado, além de demonstrar técnicas de defesa contra ataques adversariais em LLMs.
+Este projeto implementa um **Agente de IA** utilizando a API do Google Gemini (Modelo Pro/Flash) para automatizar a revisão de código Terraform. O sistema analisa riscos de segurança e custos antes da aprovação.
 
-## 🚀 Funcionalidades
+### 🚀 Funcionalidades
 
-* **Análise de Segurança:** Identifica vulnerabilidades em recursos AWS (ex: Buckets S3 públicos, Security Groups abertos).
-* **Análise FinOps:** Avalia o impacto financeiro das mudanças (ex: instâncias de banco de dados superdimensionadas).
-* **Defesa Anti-Injection:** Utiliza a técnica de *Sandwich Defense* e prompts estruturados para bloquear tentativas de "Prompt Injection".
-* **Relatórios Automáticos:** Gera arquivos Markdown (`.md`) com o parecer detalhado da IA (Aprovar/Rejeitar).
+* **Análise de Segurança:** Detecta vulnerabilidades (ex: Buckets públicos, Security Groups abertos).
+* **Análise FinOps:** Identifica recursos caros ou superdimensionados (ex: instâncias DB muito grandes).
+* **Defesa Anti-Injection:** Bloqueia tentativas de manipulação da IA (Prompt Injection) usando estratégias de defesa em camadas.
+* **Relatórios Automáticos:** Gera arquivos `.md` com o parecer detalhado (Aprovar/Rejeitar).
 
-## 📂 Estrutura do Projeto
+### 📂 Estrutura do Projeto
 
 ```text
-├── scripts/
-│   └── automacao_gemini.py      # Script Python principal (Lógica da IA)
-├── resultados_auto/             # Relatórios gerados automaticamente pelo script
-├── resultados_manuais/          # Evidências de testes manuais e prints
-├── .gitignore                   # Arquivos ignorados pelo Git (segurança)
-├── requirements.txt             # Lista de dependências do Python
+├── resultados_auto/             # Relatórios gerados automaticamente (Evidências)
+├── resultados_manuais/          # Prints e testes iniciais
+├── .gitignore                   # Arquivo de segurança (Ignora chaves/lixo)
+├── automacao_gemini.py          # Script principal da automação (Python)
+├── requirements.txt             # Lista de dependências do projeto
 └── README.md                    # Documentação do projeto
