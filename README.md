@@ -6,13 +6,16 @@
 
 ## Estrutura do Projeto
 
-text
-├── prompts/
-│   ├── v1-baseline.md    (Versão básica sem proteções)
-│   ├── v2-structured.md  (Versão com formatação padronizada)
-│   └── v3-schema.md      (Versão segura contra Prompt Injection e focada em FinOps)
-├── resultados/           (Evidências dos testes realizados)
-└── README.md
+## Estrutura do Projeto
+
+```text
+├── scripts/
+│   └── automacao_gemini.py      # Script principal da automação
+├── resultados_auto/             # Evidências geradas pelo script (MD)
+├── resultados_manuais/          # Prints e testes manuais
+├── .gitignore                   # Arquivo de segurança (chaves/lixo)
+├── requirements.txt             # Dependências do Python
+└── README.md                    # Documentação do projeto
 
 ## Raciocínio e Evolução
 
