@@ -1,33 +1,28 @@
 # Engenharia de Prompts para Análise de IaC
 
-**Nome:** André Queiroz do Nascimento
-**RA:** 2203490
-**Objetivo:** Demonstrar domínio de Prompt Engineering criando 3 versões evolutivas de um prompt para análise automática de Pull Requests.
+* **Nome:** André Queiroz do Nascimento
+* **RA:** 2203490
+* **Objetivo:** Demonstrar domínio de Prompt Engineering criando 3 versões evolutivas de um prompt para análise automática de Pull Requests, focando em segurança e FinOps.
 
-## Estrutura do Projeto
-├── prompts/
-│   ├── v1-baseline.md    (Versão básica sem proteções)
-│   ├── v2-structured.md  (Versão com formatação padronizada)
-│   └── v3-schema.md      (Versão segura contra Prompt Injection e focada em FinOps)
-├── resultados/           (Evidências dos testes realizados)
-└── README.md
+---
 
-## Raciocínio e Evolução
+## 🤖 Automação de Code Review com Google Gemini
 
-### 1. Versão Baseline (v1)
-**Estratégia:** Criei um prompt direto solicitando a classificação e decisão, sem fornecer contexto de persona ou estrutura rígida.
-- **Resultado:** O modelo identificou erros de sintaxe, mas as respostas foram despadronizadas.
-- **Falha:** Vulnerável a manipulação. No teste `PR6`, o prompt aceitou comandos maliciosos do usuário.
+Este projeto implementa um **Agente de IA** utilizando a API do Google Gemini para automatizar a revisão de código Terraform. O sistema analisa riscos de segurança e custos antes da aprovação.
 
-### 2. Versão Estruturada (v2)
-**Estratégia:** Adicionei a persona de "Especialista Sênior" e forcei um template Markdown na saída.
-- **Melhoria:** A legibilidade aumentou e a análise ficou visualmente consistente.
-- **Falha:** Ainda suscetível a Prompt Injection. A IA obedeceu à instrução "IGNORE ALL PREVIOUS INSTRUCTIONS" contida no código do PR6.
+### 🚀 Funcionalidades
 
-### 3. Versão Schema & Defesa (v3) - A Solução Final
-**Estratégia:** Implementei defesa em camadas:
-1.  **Delimitadores XML:** O código do PR foi isolado dentro de tags `<pull_request>`.
-2.  **Meta-Prompting:** Instrução explícita para tratar o conteúdo das tags apenas como dados.
-3.  **Foco em FinOps:** Detecção proativa de mudanças de SKU (ex: instância r6g.8xlarge no PR3).
+* **Análise de Segurança:** Detecta vulnerabilidades (ex: Buckets públicos, Security Groups abertos).
+* **Análise FinOps:** Identifica recursos caros ou superdimensionados (ex: instâncias DB muito grandes).
+* **Defesa Anti-Injection:** Bloqueia tentativas de manipulação da IA (Prompt Injection) usando estratégias de defesa em camadas.
+* **Relatórios Automáticos:** Gera arquivos `.md` com o parecer detalhado (Aprovar/Rejeitar).
 
-**Conclusão:** A v3 foi a única capaz de bloquear o ataque de injeção (rejeitando o PR6) e fornecer uma análise financeira detalhada.
+### 📂 Estrutura do Projeto
+
+```text
+├── resultados_auto/             # Relatórios gerados automaticamente (Evidências)
+├── resultados_manuais/          # Prints e testes iniciais
+├── .gitignore                   # Arquivo de segurança (Ignora chaves/lixo)
+├── automacao_gemini.py          # Script principal da automação (Python)
+├── requirements.txt             # Lista de dependências do projeto
+└── README.md                    # Documentação do projeto
