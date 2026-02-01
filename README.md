@@ -3,6 +3,7 @@
 * **Nome:** André Queiroz do Nascimento
 * **RA:** 2203490
 * **Objetivo:** Demonstrar domínio de Prompt Engineering criando 3 versões evolutivas de um prompt para análise automática de Pull Requests, focando em segurança e FinOps.
+* **RepoGit** https://github.com/andreqnascimento/projeto-iac-automated
 
 ---
 
