@@ -11,6 +11,22 @@
 
 Este projeto implementa um **Agente de IA** utilizando a API do Google Gemini para automatizar a revisão de código Terraform. O sistema analisa riscos de segurança e custos antes da aprovação.
 
+## 🛠️ Guia de Instalação e Execução (Passo a Passo)
+
+Siga este roteiro para executar o projeto em qualquer máquina (Windows, Linux ou Mac).
+
+### 1. Pré-requisitos
+* Ter o **Python 3.8+** instalado. [Baixar Python aqui](https://www.python.org/downloads/).
+* Ter uma **API Key do Google Gemini** (Gratuita). [Gerar Key aqui](https://aistudio.google.com/app/apikey).
+* Ter o **Git** instalado (Opcional, caso queira clonar).
+
+### 2. Baixar o Projeto
+Abra o terminal (Prompt de Comando ou PowerShell) e clone o repositório:
+
+```bash
+git clone [https://github.com/andreqnascimento/projeto-iac-automated.git](https://github.com/andreqnascimento/projeto-iac-automated.git)
+cd projeto-iac-automated
+
 ### 🚀 Funcionalidades
 
 * **Análise de Segurança:** Detecta vulnerabilidades (ex: Buckets públicos, Security Groups abertos).
@@ -19,6 +35,8 @@ Este projeto implementa um **Agente de IA** utilizando a API do Google Gemini pa
 * **Relatórios Automáticos:** Gera arquivos `.md` com o parecer detalhado (Aprovar/Rejeitar).
 
 ### 📂 Estrutura do Projeto
+
+
 
 ```text
 ├── resultados_auto/             # Relatórios gerados automaticamente (Evidências)
